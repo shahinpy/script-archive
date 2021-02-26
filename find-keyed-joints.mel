@@ -1,0 +1,6 @@
+select -cl;
+for	($joint in `ls -type joint`)
+	{for	($attr in `listAttr -k $joint`)
+		{float $keys[] = `keyframe -q -timeChange ($joint + "." + $attr)`;
+		if (`size $keys`>0)select -add $joint;}
+	}
